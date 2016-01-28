@@ -12,9 +12,6 @@ export default React.createClass({
   componentDidMount: function () {
     Observable.fromEvent(socket, 'state:changed')
       .subscribe(this.props.navigator.next);
-
-    Observable.fromRouter()
-      .subscribe((state) => socket.emit('state:changed', state.indices));
   },
 
   render: function () {

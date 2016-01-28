@@ -14,7 +14,7 @@
     "sockets"
   ],
   "author": "Iris Schaffer <irisSchaffer@gmx.net>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/irisSchaffer/unveil-network-sync/issues"
   },

@@ -37,6 +37,10 @@
     "uglify-js": "~2.4.15",
     "watchify": "^2.1.1"
   },
+  "directories": {},
+  "files": [
+    "lib"
+  ],
   "browserify": {
     "transform": [
       "babelify",
@@ -61,7 +65,8 @@
     ]
   },
   "scripts": {
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > build/bundle.js; sass --update ./styles:./build",
+    "build": "./node_modules/babel-cli/bin/babel.js src -d lib --source-maps inline",
+    "preversion": "npm run build",
     "start": "watchify -t [envify --NODE_ENV local] -o build/bundle.js -v -d src/app.js & sass -w ./styles:./build",
     "test": "jest"
   }

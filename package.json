@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/irisSchaffer/unveil-network-sync#readme",
   "dependencies": {
-    "unveil": "^0.1.2"
+    "socket.io": "^1.4.5",
+    "unveil": "^0.1.0"
   },
   "devDependencies": {
     "babel-jest": "^6.0.1",

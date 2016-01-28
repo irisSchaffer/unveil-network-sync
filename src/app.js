@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {UnveilApp, Slide, KeyControls, UIControls} from 'unveil';
-const controls = [KeyControls, UIControls];
+
+let NetworkControls = require('./components/NetworkControls').default;
+
+const controls = [KeyControls, UIControls, NetworkControls];
 
 ReactDOM.render( (
   <UnveilApp controls={controls}>

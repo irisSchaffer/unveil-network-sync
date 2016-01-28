@@ -1,6 +1,6 @@
 {
   "name": "unveil-network-sync",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Network sync for unveil",
   "main": "index.js",
   "repository": {

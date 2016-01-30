@@ -20,7 +20,7 @@
   "homepage": "https://github.com/irisSchaffer/unveil-network-sync#readme",
   "dependencies": {
     "unveil": "^0.1.0",
-    "unveil-network-sync": "^0.0.1"
+    "unveil-network-sync": "^0.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",

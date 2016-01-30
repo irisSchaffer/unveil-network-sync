@@ -1,3 +1,6 @@
+@import "./speaker-presenter"
+@import "./media-controls"
+
 button
   transition: background .25s
   background: #e3e3e3
@@ -6,17 +9,6 @@ button
 
   &:hover
     background: #bbb
-
-.media-sender
-  position: absolute
-  top: .25em
-  left: .25em
-
-  z-index: 10
-
-  .media-sender-textarea
-    display: block
-    width: 100%
 
 .modal
   z-index: 110

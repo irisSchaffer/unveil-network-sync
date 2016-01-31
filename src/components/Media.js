@@ -24,7 +24,7 @@ export default React.createClass({
         return React.createElement(IFrame, {link: data});
       }
     } else {
-      return React.createElement('q', {}, data);
+      return React.createElement('blockquote', {}, data);
     }
   },
 

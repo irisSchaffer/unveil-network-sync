@@ -1,16 +1,72 @@
 .speaker-presenter
-  position: absolute
+  padding: 1em
+  position: fixed
+  width: 100%
+  height: 100%
+  z-index: 0
+  background: $eerie_black
+  box-sizing: border-box
 
   .speaker-presenter-slide
     position: relative
-    width: 50%
+    width: 70%
     height: 70%
+    float: left
+    box-sizing: border-box
 
   .speaker-presenter-details
     float: right
-    width: 50%
+    clear: right
+    width: 30%
     height: 70%
+    box-sizing: border-box
+
+    .speaker-presenter-controls
+      height: 34%
+
+    .speaker-presenter-slide-right, .speaker-presenter-slide-down
+      position: relative
+      height: 33%
+      margin: 0 0 1em 1em
+
+    .speaker-presenter-slide-right
+      clear: both
+
+      &:before
+        content: 'right'
+
+    .speaker-presenter-slide-down
+      clear: both
+
+      &:before
+        content: 'down'
+
+  .speaker-presenter-slide, .speaker-presenter-slide-right, .speaker-presenter-slide-down
+    &:before
+      background: rgba(33, 33, 33, 0.5)
+      color: $eerie_black
+      z-index: 10
+      display: block
+      position: relative
+      padding: .3em
+      font-size: .8em
+
+  .speaker-presenter-slide:before
+    content: 'current slide'
+
 
   .speaker-presenter-notes
     width: 100%
     height: 30%
+    clear: both
+
+    box-sizing: border-box
+    padding-top: 1em
+
+    color: $white
+    overflow: auto
+
+    ul
+      padding: 0
+      list-style-position: inside
+

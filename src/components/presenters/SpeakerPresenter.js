@@ -11,14 +11,25 @@ export default React.createClass({
 
   getSlide: function (indices) {
     let slide = this.props.unveil.slides.toList()[indices[0]];
-    if(indices.length > 1 )
+    if (indices.length === 1 && this.props.unveil.areSlides(slide.props.children)) {
+      indices[1] = 0;
+    }
+    if(indices.length > 1)
       return slide.props.children.toList()[indices[1]];
     else
       return slide
   },
 
   getNotes: function (slide) {
-    return slide.props.children.filter(Notes.isNotes);
+    return slide.props.children.toList().filter(Notes.isNotes);
+  },
+
+  getNextSlide: function (level) {
+    let directions = this.props.unveil.routerState.directions[level];
+    if (!directions || !directions.next) {
+      return;
+    }
+    return this.getSlide(directions.next);
   },
 
   controlsElements: function () {
@@ -43,7 +54,11 @@ export default React.createClass({
           {slide}
         </div>
         <div className="speaker-presenter-details">
-          <div className="speaker-presenter-next-slide">
+          <div className="speaker-presenter-slide-right">
+            {this.getNextSlide(0)}
+          </div>
+          <div className="speaker-presenter-slide-down">
+            {this.getNextSlide(1)}
           </div>
           <div className="speaker-presenter-controls">
             {this.controlsElements()}

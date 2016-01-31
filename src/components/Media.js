@@ -3,7 +3,7 @@ import IFrame from './IFrame';
 
 export default React.createClass({
   propTypes: {
-    data: React.PropTypes.string.isRequired
+    data: React.PropTypes.object.isRequired
   },
 
   isUrl: function (str) {
@@ -29,7 +29,13 @@ export default React.createClass({
   },
 
   render: function () {
-    return this.getElement(this.props.data);
+    console.log(this.props.data);
+    return (
+      <div>
+        {this.getElement(this.props.data.content)}
+        <cite>From <a href={this.props.data.location}>{this.props.data.location}</a></cite>
+      </div>
+    )
   }
 
 });

@@ -2,32 +2,32 @@ import React from 'react';
 
 import { Observable } from 'rxjs';
 
-import { SocketIO } from 'unveil-network-sync/lib';
+import Media from '../../Media';
+
+let socket = require('../../../../../unveil-network-sync/src/helpers/SocketIO').default;
 
 
 export default React.createClass({
   propTypes: {
-    navigator: React.PropTypes.object.isRequired
+    stateSubject: React.PropTypes.object.isRequired
   },
 
   componentDidMount: function () {
-    Observable.fromEvent(SocketIO, 'state/slide:add')
+    Observable.fromEvent(socket, 'state/slide:add')
       .map(this.toStateEvent)
-      .subscribe(this.props.stateSubject.next);
+      .distinctUntilChanged()
+      .subscribe((e) => this.props.stateSubject.next(e));
   },
 
-  toStateEvent: function (content) {
+  toStateEvent: function (data) {
     return {
       type: 'state/slide:add',
-      data: {
-        props: {},
-        children: content
-      }
+      data: React.createElement(Media, {data: data})
     };
   },
 
   render: function () {
-    return (<div></div>);
+    return false;
   }
 
 });

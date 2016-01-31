@@ -48,20 +48,22 @@ export default React.createClass({
 
   render: function () {
     let slide = this.getSlide(this.props.unveil.routerState.indices);
+    let slideRight = this.getNextSlide(0);
+    let slideDown = this.getNextSlide(1);
     return (
       <div className="speaker-presenter">
         <div className="speaker-presenter-slide">
           {slide}
         </div>
         <div className="speaker-presenter-details">
-          <div className="speaker-presenter-slide-right">
-            {this.getNextSlide(0)}
-          </div>
-          <div className="speaker-presenter-slide-down">
-            {this.getNextSlide(1)}
-          </div>
           <div className="speaker-presenter-controls">
             {this.controlsElements()}
+          </div>
+          <div className="speaker-presenter-slide-right">
+            {slideRight}
+          </div>
+          <div className="speaker-presenter-slide-down">
+            {slideDown}
           </div>
         </div>
         <div className="speaker-presenter-notes">

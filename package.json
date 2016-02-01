@@ -1,17 +1,16 @@
 {
-  "name": "unveil-network-sync",
-  "version": "0.0.3",
-  "description": "Network sync for unveil",
+  "name": "unveil-interactive",
+  "version": "0.0.1",
+  "description": "Interactive Presentation Extension",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irisSchaffer/unveil-network-sync.git"
+    "url": "git+https://github.com/irisSchaffer/unveil-interactive.git"
   },
   "keywords": [
     "unveil",
-    "presentation",
-    "web",
-    "sockets"
+    "interactive",
+    "presentation"
   ],
   "author": "Iris Schaffer <irisSchaffer@gmx.net>",
   "license": "MIT",
@@ -20,8 +19,8 @@
   },
   "homepage": "https://github.com/irisSchaffer/unveil-network-sync#readme",
   "dependencies": {
-    "socket.io": "^1.4.5",
-    "unveil": "^0.1.0"
+    "unveil": "^0.1.0",
+    "unveil-network-sync": "^0.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",

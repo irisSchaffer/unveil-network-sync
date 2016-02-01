@@ -9,9 +9,24 @@ export default React.createClass({
     navigator: React.PropTypes.object.isRequired
   },
 
-  componentDidMount: function () {
-    Observable.fromEvent(socket, 'state:changed')
+  setup: function () {
+    this.observable = Observable.fromEvent(socket, 'state:changed')
       .subscribe(this.props.navigator.next);
+  },
+
+  tearDown: function () {
+    if (this.observable) {
+      this.observable.unsubscribe();
+    }
+  },
+
+  componentDidMount: function () {
+    this.setup();
+  },
+
+  componentDidUpdate: function () {
+    //this.tearDown();
+    //this.setup();
   },
 
   render: function () {

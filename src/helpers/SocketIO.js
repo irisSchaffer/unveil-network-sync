@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-let socket = io('http://10.29.0.170:3000');
+let socket = io('http://192.168.1.226:9000');
 console.log(socket);
 
 export default socket;

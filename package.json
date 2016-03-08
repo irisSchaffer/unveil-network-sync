@@ -1,11 +1,11 @@
 {
-  "name": "unveil-interactive",
+  "name": "unveil-network-sync",
   "version": "0.0.1",
-  "description": "Interactive Presentation Extension",
+  "description": "Unveil Network Synchronisation Extension",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irisSchaffer/unveil-interactive.git"
+    "url": "git+https://github.com/irisSchaffer/unveil-network-sync.git"
   },
   "keywords": [
     "unveil",
@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/irisSchaffer/unveil-network-sync#readme",
   "dependencies": {
-    "unveil": "^0.1.0",
-    "unveil-network-sync": "^0.0.3"
+    "unveil": "^0.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
@@ -67,7 +66,7 @@
   "scripts": {
     "build": "./node_modules/babel-cli/bin/babel.js src -d lib --source-maps inline",
     "preversion": "npm run build",
-    "start": "watchify -t [envify --NODE_ENV local] -o build/bundle.js -v -d src/app.js & sass -w ./styles:./build",
+    "start": "",
     "test": "jest"
   }
 }

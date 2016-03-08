@@ -10,7 +10,8 @@ export default React.createClass({
   },
 
   setup: function () {
-    this.observable = Observable.fromEvent(socket, 'state:changed')
+    this.observable = Observable.fromEvent(socket, 'state:change')
+      .do((e) => console.log(e))
       .subscribe(this.props.navigator.next);
   },
 

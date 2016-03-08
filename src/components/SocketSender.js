@@ -8,7 +8,7 @@ export default React.createClass({
 
   setup: function () {
     this.observable = Observable.fromRouter()
-      .subscribe((state) => socket.emit('state:changed', state.indices));
+      .subscribe((state) => socket.emit('state:change', state.indices));
   },
 
   tearDown: function () {

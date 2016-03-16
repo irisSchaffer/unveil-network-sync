@@ -9,9 +9,14 @@ export default React.createClass({
     navigator: React.PropTypes.object.isRequired
   },
 
+  contextTypes: {
+    routerState: React.PropTypes.object.isRequired
+  },
+
   setup: function () {
     this.observable = Observable.fromEvent(socket, 'state:change')
-      .do((e) => console.log(e))
+      .filter((e) => !this.context.routerState.indices.equals(e))
+      .do((e) => console.log('Socket Receiver', e))
       .subscribe(this.props.navigator.next);
   },
 
@@ -31,7 +36,7 @@ export default React.createClass({
   },
 
   render: function () {
-    return (<div></div>);
+    return false;
   }
 
 });

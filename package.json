@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/irisSchaffer/unveil-network-sync#readme",
   "dependencies": {
+    "socket.io-client": "^1.4.5",
     "unveil": "^0.1.0"
   },
   "devDependencies": {

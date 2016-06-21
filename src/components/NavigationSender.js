@@ -4,13 +4,9 @@ import { Observable } from 'rxjs'
 
 import socket from '../helpers/SocketIO'
 
-export default React.createClass({
+export default class NavigationSender extends React.Component {
 
-  contextTypes: {
-    mode: React.PropTypes.string.isRequired
-  },
-
-  setup: function () {
+  setup () {
     this.setState({lastStateChange: []})
     this.routerObservable = Observable.fromRouter().pluck('indices')
 
@@ -27,9 +23,9 @@ export default React.createClass({
     this.socketObservable = Observable.fromEvent(socket, 'state:change')
       .do((e) => console.log('socket sender saving last state change', e))
       .subscribe((e) => this.setState({lastStateChange: e}))
-  },
+  }
 
-  tearDown: function () {
+  tearDown () {
     if (this.routerObservable) {
       this.routerObservable.unsubscribe()
     }
@@ -37,19 +33,19 @@ export default React.createClass({
     if (this.socketObservable) {
       this.socketObservable.unsubscribe()
     }
-  },
+  }
 
-  componentDidMount: function () {
+  componentDidMount () {
     this.setup()
-  },
+  }
 
-  componentWillReceiveProps: function () {
-    //this.tearDown()
-    //this.setup()
-  },
+  componentWillUnmount () {
+    this.tearDown()
+    this.setup()
+  }
 
-  render: function () {
+  render () {
     return false
   }
 
-});
+}
